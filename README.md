@@ -76,3 +76,10 @@
 [SAKURA Internet IoT Alpha Communication Module Library for Arduino](https://github.com/sakura-internet/SakuraAlphaArduino)
 
 ### B. リンク集
+
+* Developers.IO クラスメソッド様
+  * 2016年06月07日 [さくらのIoT Platformを試してみた](http://dev.classmethod.jp/hardware/sakura-iot-ataglance/)
+  * 2016年06月07日 [さくらのIoT PlatformをAWSに連携する](http://dev.classmethod.jp/cloud/aws/sakura-iot-aws/)
+
+
+※ 御承諾いただいた事例を記載しております。
