@@ -73,7 +73,9 @@
 
 ## 9. 参考
 ### A.	各種マイコンからさくらの通信モジュールを使うためのライブラリ
-[SAKURA Internet IoT Alpha Communication Module Library for Arduino](https://github.com/sakura-internet/SakuraAlphaArduino)
+
+* [for Arduino](https://github.com/sakura-internet/SakuraAlphaArduino)
+* [for mbed](https://developer.mbed.org/users/sakurafan/notebook/sakura_iot_a/)
 
 ### B. リンク集
 
