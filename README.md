@@ -81,5 +81,7 @@
   * 2016年06月07日 [さくらのIoT Platformを試してみた](http://dev.classmethod.jp/hardware/sakura-iot-ataglance/)
   * 2016年06月07日 [さくらのIoT PlatformをAWSに連携する](http://dev.classmethod.jp/cloud/aws/sakura-iot-aws/)
 
+* ラムダ太郎様
+  * 2016年06月06日 [さくらのIoT Platform α で作ったもの](https://github.com/lambdataro/sakura-iot-alpha-test/)
 
 ※ 御承諾いただいた事例を記載しております。
