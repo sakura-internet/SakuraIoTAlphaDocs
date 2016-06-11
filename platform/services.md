@@ -109,3 +109,11 @@ Outgoing Webhookと同様のJSONで双方向にやりとりを行います。た
 ```
 {"module": "XXXXXXXXX","type": "channels","datetime": "2016-06-01T12:21:11.628907163Z","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": [11, 22, 33, 44, 55, 66, 77, 88]}]}}
 ```
+
+#### `"keepalive"` メッセージ
+
+WebSocketでは接続の維持を確認するために、定期的に以下のようなkeepaliveメッセージをサーバから送信しています。
+
+```
+{"type": "keepalive", "datetime": "2016-06-11T06:24:50.643930807Z"}
+```
