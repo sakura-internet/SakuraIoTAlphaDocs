@@ -63,6 +63,7 @@
  * [Arduinoシールド仕様](module/shield.md)
  * [プログラミングガイド](module/program.md)
  * [シリアルコマンドリファレンス](module/shell.md)
+ * [ブートローダーリファレンス](module/bootloader.md)
 * プラットフォーム仕様
  * [サービス連携仕様](platform/services.md)
 
