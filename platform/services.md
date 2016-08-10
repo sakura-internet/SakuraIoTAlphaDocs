@@ -27,7 +27,7 @@
 
 この署名をサーバ側で検証することによって、悪意のある第三者から送信されたデータを無視することができます。
 
-```python3
+```python
 import hmac
 import hashlib
 x_sakura_signature = hmac.new(secret.encode("utf-8"), payload.encode("utf-8"), hashlib.sha1).hexdigest()
@@ -116,4 +116,82 @@ WebSocketでは接続の維持を確認するために、定期的に以下の�
 
 ```
 {"type": "keepalive", "datetime": "2016-06-11T06:24:50.643930807Z"}
+```
+
+
+
+## Incoming Webhook
+
+ユーザからPOSTされたデータを通信モジュールに渡す機能です。
+
+### 設定項目
+
+コントロールパネルでは以下の設定項目があります。
+
+| 項目 | 説明 |
+|:----|:-----|
+| 名前 | ユーザが連携サービスを識別するための名前です。好きにつけてください。 |
+| Secret | (任意) ペイロードのJSONをHMAC-SHA1で署名する際の秘密鍵 |
+| URL | ユーザが設定する項目ではありませんが、この発行されたURLに対してPOSTしてください。 |
+
+
+#### HTTPリクエストヘッダ
+
+| ヘッダ | 説明 |
+|:----|:-----|
+| Content-Type | application/json |
+| X-Sakura-Signature | ペイロードとSecretを元に計算した HMAC-SHA1 メッセージ署名 |
+
+設定で `Secret` を指定された場合、`X-Sakura-Signature` ヘッダを付加してPOSTしてください。
+この値は `Secret` と HTTPのペイロードの文字列から計算することができます。
+この署名をIoT Platform側で検証することによって、悪意のある第三者から送信されたデータを無視することができます。
+
+```python
+import hmac
+import hashlib
+import requests
+import json
+secret = "Secret"
+data = {"module": "XXXXXXXXX","type": "channels","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": [11, 22, 33, 44, 55, 66, 77, 88]}]}}
+payload = json.dumps(data)
+x_sakura_signature = hmac.new(secret.encode("utf-8"), payload.encode("utf-8"), hashlib.sha1).hexdigest()
+print(x_sakura_signature)
+
+headers = {'X-Sakura-Signature' : x_sakura_signature}
+requests.post('https://secure.sakura.ad.jp/iot-alpha/incoming/hogehoge', data=payload, headers=headers)
+```
+これはPythonで、設定した`Secret`キーから送信するJSONデータをHMAC-SHA1署名し、Requestsモジュールで
+指定されたURLにX-Sakura-Signature付きデータをPOSTする簡単なプログラムです。
+参考にしてください。
+※HMAC-SHA1署名の結果は、JSONデータに改行がある・ないで大きく変わりますのでご注意ください。
+
+
+### ペイロード
+
+JSONの改行あり・なしは問いません
+
+```
+{"module": "XXXXXXXXX","type": "channels","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": [11, 22, 33, 44, 55, 66, 77, 88]}]}}
+```
+
+もしくは
+
+```
+{
+    "module": "XXXXXXXXX",
+    "type": "channels",
+    "payload": {
+        "channels": [{
+                "channel": 1,
+                "type": "i",
+                "value": 1
+            },
+            {
+                "channel": 2,
+                "type": "b",
+                "value": [11, 22, 33, 44, 55, 66, 77, 88]
+            }
+        ]
+    }
+}
 ```
