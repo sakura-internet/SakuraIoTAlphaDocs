@@ -78,6 +78,7 @@
 
 * [for Arduino](https://github.com/sakura-internet/SakuraAlphaArduino)
 * [for mbed](https://developer.mbed.org/users/sakurafan/notebook/sakura_iot_a/)
+* [for KinomaJS](https://github.com/FantomJAC/kpr-i2c-sakuraiot)
 
 ### B. リンク集
 
