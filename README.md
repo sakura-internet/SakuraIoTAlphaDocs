@@ -60,6 +60,7 @@
 * [チュートリアル](tutorial.md)
 * 通信モジュール仕様
  * [ハードウエア仕様](module/hardware.md)
+ * [モジュールとの通信仕様](module/communication.md)
  * [Arduinoシールド仕様](module/shield.md)
  * [プログラミングガイド](module/program.md)
  * [シリアルコマンドリファレンス](module/shell.md)
