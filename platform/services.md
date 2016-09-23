@@ -48,7 +48,7 @@ x_sakura_signature = hmac.new(secret.encode("utf-8"), payload.encode("utf-8"), h
             {
                 "channel": 2,
                 "type": "b",
-                "value": [11, 22, 33, 44, 55, 66, 77, 88]
+                "value": "0f1e2d3c4b5c6b7a"
             }
         ]
     }
@@ -87,7 +87,7 @@ x_sakura_signature = hmac.new(secret.encode("utf-8"), payload.encode("utf-8"), h
 |符号なし64bit整数|uint64_t|L|53465768|
 |32bit浮動小数点数|float|f|-3.14|
 |64bit浮動小数点数|double|d|435.2344|
-|8バイトの配列|uint8_t[8]|b|[11, 22, 33, 44, 55, 66, 77, 88]|
+|8バイト16文字の16進数文字列||b|"0f1e2d3c4b5c6b7a"
 
 
 
@@ -107,7 +107,7 @@ x_sakura_signature = hmac.new(secret.encode("utf-8"), payload.encode("utf-8"), h
 Outgoing Webhookと同様のJSONで双方向にやりとりを行います。ただし、JSONは改行せず一行で送受信されます。
 
 ```
-{"module": "XXXXXXXXX","type": "channels","datetime": "2016-06-01T12:21:11.628907163Z","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": [11, 22, 33, 44, 55, 66, 77, 88]}]}}
+{"module": "XXXXXXXXX","type": "channels","datetime": "2016-06-01T12:21:11.628907163Z","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": "0f1e2d3c4b5c6b7a"}]}}
 ```
 
 #### `"keepalive"` メッセージ
