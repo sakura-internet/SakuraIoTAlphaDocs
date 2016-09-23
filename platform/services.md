@@ -152,7 +152,7 @@ import hashlib
 import requests
 import json
 secret = "Secret"
-data = {"module": "XXXXXXXXX","type": "channels","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": [11, 22, 33, 44, 55, 66, 77, 88]}]}}
+data = {"module": "XXXXXXXXX","type": "channels","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": "0f1e2d3c4b5c6b7a"}]}}
 payload = json.dumps(data)
 x_sakura_signature = hmac.new(secret.encode("utf-8"), payload.encode("utf-8"), hashlib.sha1).hexdigest()
 print(x_sakura_signature)
@@ -171,7 +171,7 @@ requests.post('https://secure.sakura.ad.jp/iot-alpha/incoming/hogehoge', data=pa
 JSONの改行あり・なしは問いません
 
 ```
-{"module": "XXXXXXXXX","type": "channels","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": [11, 22, 33, 44, 55, 66, 77, 88]}]}}
+{"module": "XXXXXXXXX","type": "channels","payload": {"channels": [{"channel": 1,"type": "i","value": 1},{"channel": 2,"type": "b","value": "0f1e2d3c4b5c6b7a"}]}}
 ```
 
 もしくは
@@ -189,7 +189,7 @@ JSONの改行あり・なしは問いません
             {
                 "channel": 2,
                 "type": "b",
-                "value": [11, 22, 33, 44, 55, 66, 77, 88]
+                "value": "0f1e2d3c4b5c6b7a"
             }
         ]
     }
